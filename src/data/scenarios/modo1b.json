@@ -1,0 +1,165 @@
+{
+  "id": "modo1b",
+  "titulo": "Modo 1B — Fuga en terminal de carga",
+  "descripcion": "Eres supervisor en una terminal de carga de GLP. Durante la transferencia detectas una fuga en la línea de suministro dentro del recinto.",
+  "clase_onu": 2,
+  "sustancia_ejemplo": "GLP (Gas Licuado de Petróleo) — N° ONU 1075",
+  "puntaje_aprobatorio": 70,
+  "pasos": [
+    {
+      "id": "paso_1",
+      "orden": 1,
+      "pregunta": "¿Cuál es la primera acción ante la fuga durante la carga de GLP?",
+      "opciones": [
+        {
+          "id": "op_a",
+          "texto": "Cerrar la válvula de suministro principal desde el punto seguro",
+          "es_correcta": true,
+          "puntaje": 20
+        },
+        {
+          "id": "op_b",
+          "texto": "Continuar la transferencia hasta terminar el lote programado",
+          "es_correcta": false,
+          "puntaje": 0,
+          "error_tipo": "accion_peligrosa"
+        },
+        {
+          "id": "op_c",
+          "texto": "Aproximarse a la fuga sin confirmar la dirección del gas",
+          "es_correcta": false,
+          "puntaje": 0,
+          "error_tipo": "exposicion_gas"
+        }
+      ],
+      "feedback_correcto": "Correcto. En una fuga de GLP Clase 2, detener la fuente desde la válvula principal reduce la emisión antes de evacuar y notificar. Referencia: DS 021-2008-MTC Art. 170°, Libro Naranja ONU Clase 2 y GRE Guía 115.",
+      "feedback_incorrecto": "Incorrecto. Mantener la carga o aproximarse sin control aumenta la nube inflamable y el riesgo de explosión. La acción inicial es cerrar la válvula principal desde un punto seguro. Referencia: DS 021-2008-MTC Art. 170°, Libro Naranja ONU Clase 2 y GRE Guía 115.",
+      "normativa_ref": "DS 021-2008-MTC Art. 170°; Libro Naranja ONU Clase 2; GRE Guía 115",
+      "objeto_3d_asociado": "valvula-principal"
+    },
+    {
+      "id": "paso_2",
+      "orden": 2,
+      "pregunta": "La válvula principal ya fue cerrada. ¿Qué haces para reducir acumulación de gas?",
+      "opciones": [
+        {
+          "id": "op_a",
+          "texto": "Activar la ventilación de emergencia del recinto",
+          "es_correcta": true,
+          "puntaje": 20
+        },
+        {
+          "id": "op_b",
+          "texto": "Encender extractores portátiles no certificados",
+          "es_correcta": false,
+          "puntaje": 0,
+          "error_tipo": "fuente_ignicion"
+        },
+        {
+          "id": "op_c",
+          "texto": "Cerrar todas las salidas para contener el gas",
+          "es_correcta": false,
+          "puntaje": 0,
+          "error_tipo": "confinamiento_peligroso"
+        }
+      ],
+      "feedback_correcto": "Correcto. La ventilación de emergencia reduce concentración de GLP y limita atmósferas inflamables. Referencia: DS 021-2008-MTC Art. 170°, Libro Naranja ONU Clase 2 y GRE Guía 115.",
+      "feedback_incorrecto": "Incorrecto. Equipos no certificados pueden generar ignición, y confinar el gas aumenta la concentración explosiva. Debe activarse la ventilación de emergencia prevista para el recinto. Referencia: DS 021-2008-MTC Art. 170°, Libro Naranja ONU Clase 2 y GRE Guía 115.",
+      "normativa_ref": "DS 021-2008-MTC Art. 170°; Libro Naranja ONU Clase 2; GRE Guía 115",
+      "objeto_3d_asociado": "ventilacion"
+    },
+    {
+      "id": "paso_3",
+      "orden": 3,
+      "pregunta": "¿Cómo defines el radio de evacuación inicial?",
+      "opciones": [
+        {
+          "id": "op_a",
+          "texto": "Revisar la Hoja SDS y aplicar el radio indicado para GLP",
+          "es_correcta": true,
+          "puntaje": 20
+        },
+        {
+          "id": "op_b",
+          "texto": "Evacuar solo al personal que esté viendo la fuga",
+          "es_correcta": false,
+          "puntaje": 0,
+          "error_tipo": "evacuacion_insuficiente"
+        },
+        {
+          "id": "op_c",
+          "texto": "Esperar a que bomberos decida antes de alejar al personal",
+          "es_correcta": false,
+          "puntaje": 0,
+          "error_tipo": "demora_critica"
+        }
+      ],
+      "feedback_correcto": "Correcto. La Hoja SDS contiene la distancia de aislamiento y el radio de evacuación según el peligro del GLP. Referencia: DS 021-2008-MTC Art. 170°, Libro Naranja ONU Clase 2 y GRE Guía 115.",
+      "feedback_incorrecto": "Incorrecto. La evacuación no puede depender de percepción visual ni esperar la llegada de bomberos cuando existe riesgo de nube inflamable. Debe aplicarse la Hoja SDS. Referencia: DS 021-2008-MTC Art. 170°, Libro Naranja ONU Clase 2 y GRE Guía 115.",
+      "normativa_ref": "DS 021-2008-MTC Art. 170°; Libro Naranja ONU Clase 2; GRE Guía 115",
+      "objeto_3d_asociado": "hoja-sds"
+    },
+    {
+      "id": "paso_4",
+      "orden": 4,
+      "pregunta": "¿Qué información comunicas al llamar al 116?",
+      "opciones": [
+        {
+          "id": "op_a",
+          "texto": "N° ONU 1075, sustancia GLP, ubicación y cantidad estimada",
+          "es_correcta": true,
+          "puntaje": 20
+        },
+        {
+          "id": "op_b",
+          "texto": "Solo el nombre de la empresa y que hay olor a gas",
+          "es_correcta": false,
+          "puntaje": 0,
+          "error_tipo": "informacion_insuficiente"
+        },
+        {
+          "id": "op_c",
+          "texto": "Llamar primero al proveedor de GLP para pedir instrucciones",
+          "es_correcta": false,
+          "puntaje": 0,
+          "error_tipo": "orden_incorrecto"
+        }
+      ],
+      "feedback_correcto": "Correcto. La llamada al 116 debe incluir N° ONU 1075, clase, ubicación y cantidad estimada para preparar la respuesta. Referencia: DS 021-2008-MTC Art. 170°, Libro Naranja ONU Clase 2 y GRE Guía 115.",
+      "feedback_incorrecto": "Incorrecto. Una notificación incompleta retrasa la selección de EPP y control de atmósferas inflamables. La primera comunicación operativa es al 116 con N° ONU 1075 y datos de la fuga. Referencia: DS 021-2008-MTC Art. 170°, Libro Naranja ONU Clase 2 y GRE Guía 115.",
+      "normativa_ref": "DS 021-2008-MTC Art. 170°; Libro Naranja ONU Clase 2; GRE Guía 115",
+      "objeto_3d_asociado": "telefono"
+    },
+    {
+      "id": "paso_5",
+      "orden": 5,
+      "pregunta": "Mientras llega la respuesta externa, ¿qué control mantienes?",
+      "opciones": [
+        {
+          "id": "op_a",
+          "texto": "Establecer perímetro y no reentrar sin autorización",
+          "es_correcta": true,
+          "puntaje": 20
+        },
+        {
+          "id": "op_b",
+          "texto": "Permitir reingreso rápido para recuperar herramientas",
+          "es_correcta": false,
+          "puntaje": 0,
+          "error_tipo": "reingreso_peligroso"
+        },
+        {
+          "id": "op_c",
+          "texto": "Reabrir la zona cuando deje de oler a gas",
+          "es_correcta": false,
+          "puntaje": 0,
+          "error_tipo": "criterio_inseguro"
+        }
+      ],
+      "feedback_correcto": "Correcto. El perímetro evita reingresos no autorizados hasta que la atmósfera sea evaluada por personal competente. Referencia: DS 021-2008-MTC Art. 170°, Libro Naranja ONU Clase 2 y GRE Guía 115.",
+      "feedback_incorrecto": "Incorrecto. El olor no confirma seguridad y el reingreso sin autorización expone al personal a atmósferas inflamables. Debe mantenerse el perímetro. Referencia: DS 021-2008-MTC Art. 170°, Libro Naranja ONU Clase 2 y GRE Guía 115.",
+      "normativa_ref": "DS 021-2008-MTC Art. 170°; Libro Naranja ONU Clase 2; GRE Guía 115",
+      "objeto_3d_asociado": "zona-segura"
+    }
+  ]
+}

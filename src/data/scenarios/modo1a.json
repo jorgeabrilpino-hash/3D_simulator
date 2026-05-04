@@ -1,0 +1,165 @@
+{
+  "id": "modo1a",
+  "titulo": "Modo 1A — Fuga en ruta",
+  "descripcion": "Eres conductor de un camión cisterna con carga Clase 3 (líquido inflamable). Detectas una fuga en la válvula lateral mientras circulas por la carretera.",
+  "clase_onu": 3,
+  "sustancia_ejemplo": "Gasolina — N° ONU 1203",
+  "puntaje_aprobatorio": 70,
+  "pasos": [
+    {
+      "id": "paso_1",
+      "orden": 1,
+      "pregunta": "¿Qué haces inmediatamente al detectar la fuga?",
+      "opciones": [
+        {
+          "id": "op_a",
+          "texto": "Detener el vehículo en zona segura y apagar el motor",
+          "es_correcta": true,
+          "puntaje": 20
+        },
+        {
+          "id": "op_b",
+          "texto": "Seguir conduciendo hasta encontrar un taller mecánico",
+          "es_correcta": false,
+          "puntaje": 0,
+          "error_tipo": "accion_peligrosa"
+        },
+        {
+          "id": "op_c",
+          "texto": "Acelerar para llegar más rápido al destino",
+          "es_correcta": false,
+          "puntaje": 0,
+          "error_tipo": "accion_peligrosa"
+        }
+      ],
+      "feedback_correcto": "Correcto. El DS 021-2008-MTC, Art. 160° establece que ante cualquier emergencia el conductor debe detener el vehículo en lugar seguro, alejado de fuentes de ignición, y apagar inmediatamente el motor para evitar explosión.",
+      "feedback_incorrecto": "Incorrecto. Continuar con el vehículo en movimiento aumenta el riesgo de ignición por fricción y expande el área de derrame. Artículo 160° DS 021-2008-MTC: detención inmediata es obligatoria.",
+      "normativa_ref": "DS 021-2008-MTC, Artículo 160°",
+      "objeto_3d_asociado": null
+    },
+    {
+      "id": "paso_2",
+      "orden": 2,
+      "pregunta": "El vehículo está detenido. ¿Cuál es el siguiente paso?",
+      "opciones": [
+        {
+          "id": "op_a",
+          "texto": "Colocar triángulos de seguridad a 50m adelante y atrás",
+          "es_correcta": true,
+          "puntaje": 20
+        },
+        {
+          "id": "op_b",
+          "texto": "Intentar cerrar la válvula manualmente sin EPP",
+          "es_correcta": false,
+          "puntaje": 0,
+          "error_tipo": "sin_proteccion"
+        },
+        {
+          "id": "op_c",
+          "texto": "Llamar al jefe de operaciones antes de hacer cualquier cosa",
+          "es_correcta": false,
+          "puntaje": 0,
+          "error_tipo": "protocolo_incorrecto"
+        }
+      ],
+      "feedback_correcto": "Correcto. La señalización vial es el primer paso de protección a terceros. DS 021-2008-MTC requiere señalización inmediata para evitar accidentes secundarios.",
+      "feedback_incorrecto": "Incorrecto. Manipular la válvula sin EPP adecuado ante una fuga de líquido inflamable puede causar quemaduras graves o ignición. La señalización tiene prioridad para proteger a otros usuarios de la vía.",
+      "normativa_ref": "DS 021-2008-MTC, Artículo 161°; Libro Naranja ONU Cap. 7",
+      "objeto_3d_asociado": "triangulos"
+    },
+    {
+      "id": "paso_3",
+      "orden": 3,
+      "pregunta": "¿Qué información debes obtener de la etiqueta del tanque antes de llamar a emergencias?",
+      "opciones": [
+        {
+          "id": "op_a",
+          "texto": "El número ONU y el número de riesgo (código Kemler)",
+          "es_correcta": true,
+          "puntaje": 20
+        },
+        {
+          "id": "op_b",
+          "texto": "El nombre del transportista y la placa del vehículo",
+          "es_correcta": false,
+          "puntaje": 0,
+          "error_tipo": "informacion_insuficiente"
+        },
+        {
+          "id": "op_c",
+          "texto": "No es necesario, los bomberos ya saben qué hacer",
+          "es_correcta": false,
+          "puntaje": 0,
+          "error_tipo": "omision_critica"
+        }
+      ],
+      "feedback_correcto": "Correcto. El N° ONU identifica la sustancia y el código Kemler indica el tipo de riesgo. Esta información es lo primero que pedirán los bomberos. Libro Naranja ONU: identificación obligatoria antes de notificar.",
+      "feedback_incorrecto": "Incorrecto. El N° ONU es la primera información que los servicios de emergencia necesitan para determinar el equipo correcto. Sin él, los bomberos pueden llegar sin el EPP adecuado.",
+      "normativa_ref": "Libro Naranja ONU, Sección 5.3; DS 021-2008-MTC Art. 22°",
+      "objeto_3d_asociado": "valvula"
+    },
+    {
+      "id": "paso_4",
+      "orden": 4,
+      "pregunta": "¿A quién llamas primero?",
+      "opciones": [
+        {
+          "id": "op_a",
+          "texto": "Bomberos al 116 e informas N° ONU y ubicación exacta",
+          "es_correcta": true,
+          "puntaje": 20
+        },
+        {
+          "id": "op_b",
+          "texto": "Al jefe de operaciones de la empresa",
+          "es_correcta": false,
+          "puntaje": 0,
+          "error_tipo": "protocolo_incorrecto"
+        },
+        {
+          "id": "op_c",
+          "texto": "A la Policía de Tránsito (PNP)",
+          "es_correcta": false,
+          "puntaje": 5,
+          "error_tipo": "orden_incorrecto"
+        }
+      ],
+      "feedback_correcto": "Correcto. El DS 021-2008-MTC establece que la primera llamada es siempre al 116 (Bomberos), indicando: N° ONU, clase de riesgo, ubicación exacta y cantidad estimada del derrame.",
+      "feedback_incorrecto": "Incorrecto. El jefe de operaciones no tiene capacidad de respuesta de emergencia. La normativa es explícita: primera llamada al 116. El reporte interno a la empresa es posterior.",
+      "normativa_ref": "DS 021-2008-MTC, Artículo 163°; Plan Nacional de Contingencia",
+      "objeto_3d_asociado": "telefono"
+    },
+    {
+      "id": "paso_5",
+      "orden": 5,
+      "pregunta": "Mientras esperas a bomberos, ¿dónde te posicionas?",
+      "opciones": [
+        {
+          "id": "op_a",
+          "texto": "A favor del viento, mínimo 50 metros del derrame",
+          "es_correcta": true,
+          "puntaje": 20
+        },
+        {
+          "id": "op_b",
+          "texto": "Junto al camión para vigilar que no roben la carga",
+          "es_correcta": false,
+          "puntaje": 0,
+          "error_tipo": "riesgo_personal"
+        },
+        {
+          "id": "op_c",
+          "texto": "En contra del viento para ver mejor la fuga",
+          "es_correcta": false,
+          "puntaje": 0,
+          "error_tipo": "exposicion_toxica"
+        }
+      ],
+      "feedback_correcto": "Correcto. Posicionarse a favor del viento evita la exposición a vapores inflamables o tóxicos. La distancia mínima de 50m es estándar para Clase 3 según la Guía de Respuesta a Emergencias (GRE) ONU.",
+      "feedback_incorrecto": "Incorrecto. Mantenerse cerca del derrame expone al conductor a vapores inflamables que pueden ignicionarse. A favor del viento y a distancia es la posición de seguridad estándar ONU.",
+      "normativa_ref": "GRE ONU 2020, Guía 128; DS 021-2008-MTC Art. 164°",
+      "objeto_3d_asociado": "indicador-viento"
+    }
+  ]
+}
