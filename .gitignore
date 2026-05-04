@@ -28,8 +28,11 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
+.env
+.env.*
 .env*.local
 .env.local
+!.env.example
 
 # vercel
 .vercel
@@ -37,3 +40,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Codex / local project planning files
+AGENTS.md
+PROMPTS-CODEX.md
+PROJECT-CONTINUATION.md
+skills/
+src/skills/
+
+# local archives and generated exports
+*.zip
+chemsim-*.json

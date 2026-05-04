@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ChemSim Peru
 
-## Getting Started
+Simulador web de capacitacion para emergencias con materiales peligrosos,
+basado en el DS 021-2008-MTC de Peru y referencias ONU.
 
-First, run the development server:
+El MVP incluye:
+
+- Selector de modo de entrenamiento.
+- Flujo funcional del Modo 1A: fuga en ruta con camion cisterna Clase 3.
+- Escena 3D React Three Fiber integrada para el Modo 1A.
+- Evaluacion de 5 decisiones secuenciales.
+- Feedback normativo estatico desde JSON.
+- Pantalla final de puntaje y exportacion del resultado como JSON.
+
+## Stack
+
+- Next.js 14 App Router
+- React 18
+- TypeScript
+- Tailwind CSS
+- Three.js / React Three Fiber / Drei
+- Zustand
+- Framer Motion
+
+## Requisitos
+
+Ver [REQUIREMENTS.md](./REQUIREMENTS.md).
+
+## Instalacion
+
+```bash
+npm ci
+```
+
+Si no tienes `package-lock.json` actualizado, usa:
+
+```bash
+npm install
+```
+
+## Desarrollo
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abrir:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Ruta principal del simulador:
 
-## Learn More
+```text
+http://localhost:3000/simulador/modo1a
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Produccion
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+npm run start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Variables de entorno
 
-## Deploy on Vercel
+El MVP no requiere variables de entorno para correr localmente.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+No subir archivos `.env` al repositorio.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Archivos que no deben subirse
+
+Este repositorio ignora archivos locales de trabajo del agente y configuracion privada:
+
+- `.env`, `.env.*`
+- `AGENTS.md`
+- `PROMPTS-CODEX.md`
+- `PROJECT-CONTINUATION.md`
+- `skills/`
+- `src/skills/`
+- `.next/`
+- `node_modules/`
+
+## Deploy
+
+El proyecto esta preparado para Vercel. El archivo `vercel.json` agrega headers
+COOP/COEP necesarios para compatibilidad con ciertos flujos de Three.js.
