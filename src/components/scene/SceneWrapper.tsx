@@ -1,38 +1,46 @@
 'use client'
 
-import { Suspense, type ReactNode } from 'react'
+import { Suspense, type ReactNode, useEffect, useState } from 'react'
 
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
+
+import { useSimulatorStore } from '@/store/simulatorStore'
 
 interface SceneWrapperProps {
   children: ReactNode
 }
 
 export function SceneWrapper({ children }: SceneWrapperProps) {
+  const escenaActual = useSimulatorStore((state) => state.worldState.escena_actual)
+  const [isTransitioning, setIsTransitioning] = useState(false)
+
+  useEffect(() => {
+    setIsTransitioning(true)
+    const timeout = window.setTimeout(() => setIsTransitioning(false), 220)
+    return () => window.clearTimeout(timeout)
+  }, [escenaActual])
+
   return (
-    <Suspense
-      fallback={
-        <div className="flex h-screen w-full items-center justify-center bg-background text-foreground">
-          Cargando escena...
-        </div>
-      }
-    >
+    <div className="relative h-full min-h-screen w-full bg-[#0a0a0a]">
       <Canvas
-        camera={{ position: [0, 3, 8], fov: 60 }}
+        camera={{ position: [9, 4.5, 9], fov: 55 }}
+        dpr={[1, 1.5]}
         shadows
-        gl={{ antialias: true, alpha: false }}
+        gl={{
+          antialias: true,
+          powerPreference: 'high-performance',
+          alpha: false,
+          stencil: false,
+          depth: true,
+        }}
       >
-        <ambientLight intensity={0.4} />
-        <directionalLight position={[10, 10, 5]} intensity={1.2} castShadow />
-        {children}
-        <OrbitControls
-          enablePan={false}
-          minDistance={3}
-          maxDistance={15}
-          maxPolarAngle={Math.PI / 2}
-        />
+        <Suspense fallback={null}>{children}</Suspense>
       </Canvas>
-    </Suspense>
+      <div
+        className={`pointer-events-none absolute inset-0 bg-black transition-opacity duration-200 ${
+          isTransitioning ? 'opacity-55' : 'opacity-0'
+        }`}
+      />
+    </div>
   )
 }

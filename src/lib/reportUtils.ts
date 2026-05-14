@@ -5,19 +5,18 @@ export function exportarResultadoJSON(resultado: ResultadoSimulacion): void {
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')
   a.href = url
-  a.download = `chemsim-${resultado.escenario_id}-${Date.now()}.json`
+  a.download = `chemsim-${resultado.camino_tomado.join('-')}-${Date.now()}.json`
   a.click()
   URL.revokeObjectURL(url)
 }
 
 export function generarTextoCompartir(resultado: ResultadoSimulacion): string {
-  const estado = resultado.aprobado ? '✓ Aprobado' : '✕ Reprobado'
-  const modo = resultado.escenario_id.toUpperCase().replace('MODO', 'Modo ')
-  return `ChemSim Perú — ${modo} — ${resultado.porcentaje}/100 ${estado} | Capacitación DS 021-2008-MTC`
+  const estado = resultado.aprobado ? 'Aprobado' : 'Reprobado'
+  return `ChemSim Peru - ${resultado.porcentaje}/100 ${estado} | Capacitacion DS 021-2008-MTC`
 }
 
 export function formatearTiempo(segundos: number): string {
-  const m = Math.floor(segundos / 60)
-  const s = segundos % 60
-  return `${m}m ${s.toString().padStart(2, '0')}s`
+  const minutes = Math.floor(segundos / 60)
+  const seconds = segundos % 60
+  return `${minutes}m ${seconds.toString().padStart(2, '0')}s`
 }

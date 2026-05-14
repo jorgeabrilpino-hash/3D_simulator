@@ -1,0 +1,132 @@
+{
+  "escena_id": "escena_3",
+  "titulo": "Escena 3 — Espera y coordinación",
+  "descripcion_inicial": "Los servicios de emergencia están en camino. La situación está activa.",
+  "tiempo_limite_seg": null,
+  "timeout_trigger": null,
+
+  "pool_decisiones": [
+    {
+      "id": "e3_A",
+      "texto_opcion": "Preparar los documentos del vehículo y la hoja SDS para entregarlos a bomberos",
+      "nivel": "optima",
+      "nivel_error": null,
+      "efecto_worldstate": {
+        "documentos_listos": true
+      },
+      "puntos": 20,
+      "feedback_contextual": null,
+      "trigger_escena": "escena_4",
+      "objeto_3d_id": "documentos_kit"
+    },
+    {
+      "id": "e3_B",
+      "texto_opcion": "Mantenerte a favor del viento en la zona de seguridad señalizada",
+      "nivel": "optima",
+      "nivel_error": null,
+      "efecto_worldstate": {},
+      "puntos": 18,
+      "feedback_contextual": null,
+      "trigger_escena": "escena_4",
+      "objeto_3d_id": "zona_segura"
+    },
+    {
+      "id": "e3_C",
+      "texto_opcion": "Notificar a la autoridad regulatoria (DGAAM) sobre el incidente",
+      "nivel": "correcta",
+      "nivel_error": null,
+      "efecto_worldstate": {
+        "notifico_dgaam": true
+      },
+      "puntos": 14,
+      "feedback_contextual": null,
+      "trigger_escena": "escena_4",
+      "objeto_3d_id": "telefono_dgaam"
+    },
+    {
+      "id": "e3_D",
+      "texto_opcion": "Intentar reparar la válvula antes de que lleguen los bomberos",
+      "nivel": "incorrecta_grave",
+      "nivel_error": "grave",
+      "efecto_worldstate": {
+        "fuga_pct_delta": 25,
+        "errores_criticos_delta": 1
+      },
+      "puntos": -20,
+      "feedback_contextual": null,
+      "trigger_escena": "escena_F_C",
+      "objeto_3d_id": "valvula_reparacion"
+    },
+    {
+      "id": "e3_E",
+      "texto_opcion": "Alertar y guiar a las personas cercanas a alejarse del área",
+      "nivel": "correcta",
+      "nivel_error": null,
+      "efecto_worldstate": {
+        "civil_en_peligro": false
+      },
+      "puntos": 15,
+      "feedback_contextual": null,
+      "trigger_escena": "escena_4",
+      "objeto_3d_id": "civil_zona"
+    },
+    {
+      "id": "e3_F",
+      "texto_opcion": "Volver al camión para recuperar tus pertenencias personales",
+      "nivel": "incorrecta_leve",
+      "nivel_error": "leve",
+      "efecto_worldstate": {
+        "fuga_pct_delta": 10,
+        "errores_criticos_delta": 1
+      },
+      "puntos": 0,
+      "feedback_contextual": "Zona activa. Prohibido reingresar sin autorizacion de bomberos.",
+      "trigger_escena": "escena_4",
+      "objeto_3d_id": null
+    },
+    {
+      "id": "e3_G",
+      "texto_opcion": "Tomar fotos del incidente para el reporte de la empresa",
+      "nivel": "incorrecta_leve",
+      "nivel_error": "leve",
+      "efecto_worldstate": {
+        "tiempo_perdido_seg": 30
+      },
+      "puntos": 0,
+      "feedback_contextual": "Las fotos te distrajeron del control. Documenta solo cuando la escena este estabilizada.",
+      "trigger_escena": "escena_4",
+      "objeto_3d_id": null
+    },
+    {
+      "id": "e3_H",
+      "texto_opcion": "Contactar a la empresa para informar antes de que lleguen los medios",
+      "nivel": "correcta",
+      "nivel_error": null,
+      "efecto_worldstate": {},
+      "puntos": 8,
+      "feedback_contextual": null,
+      "trigger_escena": "escena_4",
+      "objeto_3d_id": null
+    },
+    {
+      "id": "e3_I",
+      "texto_opcion": "Mover el camión a un lugar más seguro antes de que lleguen bomberos",
+      "nivel": "incorrecta_grave",
+      "nivel_error": "grave",
+      "efecto_worldstate": {
+        "fuga_pct_delta": 30,
+        "errores_criticos_delta": 1
+      },
+      "puntos": -20,
+      "feedback_contextual": null,
+      "trigger_escena": "escena_F_C",
+      "objeto_3d_id": null
+    }
+  ],
+
+  "reglas_seleccion": {
+    "opciones_por_ronda": 2,
+    "garantizar_una_no_grave": true,
+    "nota": "Seleccionar 2 del pool aleatoriamente. Nunca mostrar 2 opciones graves juntas."
+  }
+}

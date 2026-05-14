@@ -1,0 +1,125 @@
+{
+  "escena_id": "escena_1",
+  "titulo": "Escena 1 — Detección de la fuga",
+  "descripcion_inicial": "Eres conductor del camión cisterna. Algo no está bien. Tienes que actuar.",
+  "tiempo_limite_seg": 300,
+  "timeout_trigger": "escena_F_A",
+
+  "pool_decisiones": [
+    {
+      "id": "e1_A",
+      "texto_opcion": "Inspeccionar el lateral del tanque antes de hacer cualquier cosa",
+      "nivel": "optima",
+      "nivel_error": null,
+      "efecto_worldstate": {
+        "leyo_kemler": true,
+        "fuga_pct_delta": 0
+      },
+      "puntos": 20,
+      "feedback_contextual": null,
+      "trigger_escena": "escena_2",
+      "objeto_3d_id": "panel_kemler"
+    },
+    {
+      "id": "e1_B",
+      "texto_opcion": "Apagar el motor y alejarte del vehículo para evaluar desde afuera",
+      "nivel": "correcta",
+      "nivel_error": null,
+      "efecto_worldstate": {
+        "fuga_pct_delta": 0
+      },
+      "puntos": 12,
+      "feedback_contextual": null,
+      "trigger_escena": "escena_2",
+      "objeto_3d_id": "cabina_motor"
+    },
+    {
+      "id": "e1_C",
+      "texto_opcion": "Revisar el interior de la cabina para entender qué pasó",
+      "nivel": "incorrecta_leve",
+      "nivel_error": "leve",
+      "efecto_worldstate": {
+        "fuga_pct_delta": 8,
+        "tiempo_perdido_seg": 45
+      },
+      "puntos": 0,
+      "feedback_contextual": "La fuga crecio mientras revisabas la cabina. Prioridad: identificar la fuente desde posicion segura.",
+      "trigger_escena": "escena_2",
+      "objeto_3d_id": null
+    },
+    {
+      "id": "e1_D",
+      "texto_opcion": "Continuar hacia tu destino y reportar la anomalía al llegar",
+      "nivel": "incorrecta_grave",
+      "nivel_error": "grave",
+      "efecto_worldstate": {
+        "fuga_pct_delta": 35,
+        "errores_criticos_delta": 1
+      },
+      "puntos": -20,
+      "feedback_contextual": null,
+      "trigger_escena": "escena_F_A",
+      "objeto_3d_id": null
+    },
+    {
+      "id": "e1_E",
+      "texto_opcion": "Detener el vehículo y activar las luces de emergencia",
+      "nivel": "correcta",
+      "nivel_error": null,
+      "efecto_worldstate": {
+        "fuga_pct_delta": 0
+      },
+      "puntos": 15,
+      "feedback_contextual": null,
+      "trigger_escena": "escena_2",
+      "objeto_3d_id": "cabina_motor"
+    },
+    {
+      "id": "e1_F",
+      "texto_opcion": "Llamar a tu supervisor para que te indique qué hacer",
+      "nivel": "incorrecta_leve",
+      "nivel_error": "leve",
+      "efecto_worldstate": {
+        "fuga_pct_delta": 12,
+        "tiempo_perdido_seg": 60
+      },
+      "puntos": 0,
+      "feedback_contextual": "La espera agravo la fuga. Primero activa el protocolo de emergencia y controla el perimetro.",
+      "trigger_escena": "escena_2",
+      "objeto_3d_id": null
+    },
+    {
+      "id": "e1_G",
+      "texto_opcion": "Encender las luces de emergencia del camión y esperar",
+      "nivel": "correcta",
+      "nivel_error": null,
+      "efecto_worldstate": {
+        "fuga_pct_delta": 0
+      },
+      "puntos": 10,
+      "feedback_contextual": null,
+      "trigger_escena": "escena_2",
+      "objeto_3d_id": "cabina_motor"
+    },
+    {
+      "id": "e1_H",
+      "texto_opcion": "Tomar fotos del incidente para documentarlo antes de actuar",
+      "nivel": "incorrecta_leve",
+      "nivel_error": "leve",
+      "efecto_worldstate": {
+        "fuga_pct_delta": 6,
+        "tiempo_perdido_seg": 40
+      },
+      "puntos": 0,
+      "feedback_contextual": "Documentar va despues de asegurar la escena. La fuga crecio mientras fotografiabas.",
+      "trigger_escena": "escena_2",
+      "objeto_3d_id": null
+    }
+  ],
+
+  "reglas_seleccion": {
+    "opciones_por_ronda": 2,
+    "garantizar_una_no_grave": true,
+    "nota": "Seleccionar 2 del pool aleatoriamente. Nunca mostrar 2 opciones graves juntas. Al reiniciar, re-seleccionar del pool completo."
+  }
+}

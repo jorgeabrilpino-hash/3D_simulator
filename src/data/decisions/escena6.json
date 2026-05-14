@@ -1,0 +1,117 @@
+{
+  "escena_id": "escena_6",
+  "titulo": "Escena 6 - Cierre seguro",
+  "descripcion_inicial": "El incidente esta bajo control. Falta cerrar el protocolo sin perder trazabilidad.",
+  "tiempo_limite_seg": null,
+  "timeout_trigger": null,
+
+  "pool_decisiones": [
+    {
+      "id": "e6_A",
+      "texto_opcion": "Firmar el acta de entrega con bomberos y adjuntar la SDS",
+      "nivel": "optima",
+      "nivel_error": null,
+      "efecto_worldstate": {
+        "documentos_listos": true
+      },
+      "puntos": 18,
+      "feedback_contextual": null,
+      "trigger_escena": "fin_exitoso",
+      "objeto_3d_id": null
+    },
+    {
+      "id": "e6_B",
+      "texto_opcion": "Confirmar que el area queda aislada hasta la disposicion final",
+      "nivel": "optima",
+      "nivel_error": null,
+      "efecto_worldstate": {
+        "civil_en_peligro": false
+      },
+      "puntos": 18,
+      "feedback_contextual": null,
+      "trigger_escena": "fin_exitoso",
+      "objeto_3d_id": null
+    },
+    {
+      "id": "e6_C",
+      "texto_opcion": "Reportar a la empresa el cierre operativo y las medidas aplicadas",
+      "nivel": "correcta",
+      "nivel_error": null,
+      "efecto_worldstate": {},
+      "puntos": 12,
+      "feedback_contextual": null,
+      "trigger_escena": "fin_exitoso",
+      "objeto_3d_id": null
+    },
+    {
+      "id": "e6_D",
+      "texto_opcion": "Verificar que nadie reingrese al area antes del retiro final",
+      "nivel": "correcta",
+      "nivel_error": null,
+      "efecto_worldstate": {
+        "civil_en_peligro": false
+      },
+      "puntos": 12,
+      "feedback_contextual": null,
+      "trigger_escena": "fin_exitoso",
+      "objeto_3d_id": null
+    },
+    {
+      "id": "e6_E",
+      "texto_opcion": "Solicitar copia del informe preliminar para archivo de ruta",
+      "nivel": "correcta",
+      "nivel_error": null,
+      "efecto_worldstate": {},
+      "puntos": 10,
+      "feedback_contextual": null,
+      "trigger_escena": "fin_exitoso",
+      "objeto_3d_id": null
+    },
+    {
+      "id": "e6_F",
+      "texto_opcion": "Retirarte sin confirmar si quedo senalizacion temporal",
+      "nivel": "incorrecta_leve",
+      "nivel_error": "leve",
+      "efecto_worldstate": {
+        "tiempo_perdido_seg": 45
+      },
+      "puntos": 0,
+      "feedback_contextual": "El cierre requiere verificar controles temporales antes de retirarte.",
+      "trigger_escena": "fin_exitoso",
+      "objeto_3d_id": null
+    },
+    {
+      "id": "e6_G",
+      "texto_opcion": "Dejar el reporte incompleto para completarlo al dia siguiente",
+      "nivel": "incorrecta_leve",
+      "nivel_error": "leve",
+      "efecto_worldstate": {
+        "tiempo_perdido_seg": 60
+      },
+      "puntos": 0,
+      "feedback_contextual": "Cerrar sin reporte completo reduce la trazabilidad del incidente.",
+      "trigger_escena": "fin_exitoso",
+      "objeto_3d_id": null
+    },
+    {
+      "id": "e6_H",
+      "texto_opcion": "Rechazar firmar el acta y salir del lugar con el camion",
+      "nivel": "incorrecta_grave",
+      "nivel_error": "grave",
+      "efecto_worldstate": {
+        "errores_criticos_delta": 1,
+        "fuga_pct_delta": 20
+      },
+      "puntos": -20,
+      "feedback_contextual": null,
+      "trigger_escena": "escena_F_C",
+      "objeto_3d_id": null
+    }
+  ],
+
+  "reglas_seleccion": {
+    "opciones_por_ronda": 2,
+    "garantizar_una_no_grave": true,
+    "nota": "Escena 6 usa alternancia A/B/C/D con 2 opciones por ronda."
+  }
+}

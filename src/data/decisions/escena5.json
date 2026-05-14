@@ -1,0 +1,118 @@
+{
+  "escena_id": "escena_5",
+  "titulo": "Escena 5 - Control y reporte inicial",
+  "descripcion_inicial": "La emergencia esta contenida parcialmente. Ahora debes sostener la trazabilidad del incidente.",
+  "tiempo_limite_seg": null,
+  "timeout_trigger": null,
+
+  "pool_decisiones": [
+    {
+      "id": "e5_A",
+      "texto_opcion": "Registrar en la bitacora las decisiones tomadas y la hora exacta",
+      "nivel": "optima",
+      "nivel_error": null,
+      "efecto_worldstate": {
+        "documentos_listos": true
+      },
+      "puntos": 18,
+      "feedback_contextual": null,
+      "trigger_escena": "escena_6",
+      "objeto_3d_id": null
+    },
+    {
+      "id": "e5_B",
+      "texto_opcion": "Notificar a DGAAM con datos del producto, ubicacion y control aplicado",
+      "nivel": "optima",
+      "nivel_error": null,
+      "efecto_worldstate": {
+        "notifico_dgaam": true
+      },
+      "puntos": 18,
+      "feedback_contextual": null,
+      "trigger_escena": "escena_6",
+      "objeto_3d_id": null
+    },
+    {
+      "id": "e5_C",
+      "texto_opcion": "Coordinar con la empresa transportista el apoyo logistico",
+      "nivel": "correcta",
+      "nivel_error": null,
+      "efecto_worldstate": {},
+      "puntos": 12,
+      "feedback_contextual": null,
+      "trigger_escena": "escena_6",
+      "objeto_3d_id": null
+    },
+    {
+      "id": "e5_D",
+      "texto_opcion": "Esperar instrucciones de bomberos fuera de la zona caliente",
+      "nivel": "correcta",
+      "nivel_error": null,
+      "efecto_worldstate": {},
+      "puntos": 12,
+      "feedback_contextual": null,
+      "trigger_escena": "escena_6",
+      "objeto_3d_id": null
+    },
+    {
+      "id": "e5_E",
+      "texto_opcion": "Mantener libre el acceso para unidades de respuesta y recuperacion",
+      "nivel": "correcta",
+      "nivel_error": null,
+      "efecto_worldstate": {
+        "senalizacion_puesta": true
+      },
+      "puntos": 10,
+      "feedback_contextual": null,
+      "trigger_escena": "escena_6",
+      "objeto_3d_id": null
+    },
+    {
+      "id": "e5_F",
+      "texto_opcion": "Esperar a que la empresa envie un formato antes de registrar datos",
+      "nivel": "incorrecta_leve",
+      "nivel_error": "leve",
+      "efecto_worldstate": {
+        "tiempo_perdido_seg": 60
+      },
+      "puntos": 0,
+      "feedback_contextual": "El registro se hace durante la emergencia, no despues de recibir formatos.",
+      "trigger_escena": "escena_6",
+      "objeto_3d_id": null
+    },
+    {
+      "id": "e5_G",
+      "texto_opcion": "Permitir que un ayudante tome fotos cerca del derrame",
+      "nivel": "incorrecta_leve",
+      "nivel_error": "leve",
+      "efecto_worldstate": {
+        "civil_en_peligro": true,
+        "fuga_pct_delta": 6
+      },
+      "puntos": 0,
+      "feedback_contextual": "Acercar personal no esencial aumenta la exposicion y complica el control.",
+      "trigger_escena": "escena_6",
+      "objeto_3d_id": null
+    },
+    {
+      "id": "e5_H",
+      "texto_opcion": "Ocultar datos del manifiesto para evitar sanciones a la empresa",
+      "nivel": "incorrecta_grave",
+      "nivel_error": "grave",
+      "efecto_worldstate": {
+        "errores_criticos_delta": 1,
+        "tiempo_perdido_seg": 120
+      },
+      "puntos": -20,
+      "feedback_contextual": null,
+      "trigger_escena": "escena_F_C",
+      "objeto_3d_id": null
+    }
+  ],
+
+  "reglas_seleccion": {
+    "opciones_por_ronda": 2,
+    "garantizar_una_no_grave": true,
+    "nota": "Escena 5 usa alternancia A/B/C/D con 2 opciones por ronda."
+  }
+}
