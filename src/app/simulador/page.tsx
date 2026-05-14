@@ -3,14 +3,20 @@
 import dynamic from 'next/dynamic'
 import { useEffect, useRef } from 'react'
 
-import { EscenaActiva } from '@/components/scene/EscenaActiva'
-import { SceneWrapper } from '@/components/scene/SceneWrapper'
 import { FeedbackToast } from '@/components/ui/FeedbackToast'
 import { HudSuperior } from '@/components/ui/HudSuperior'
 import { PanelAcciones } from '@/components/ui/PanelAcciones'
 import { PantallaPuntaje } from '@/components/ui/PantallaPuntaje'
 import { useSimulatorStore } from '@/store/simulatorStore'
 
+const EscenaActiva = dynamic(
+  () => import('@/components/scene/EscenaActiva').then((mod) => mod.EscenaActiva),
+  { ssr: false },
+)
+const SceneWrapper = dynamic(
+  () => import('@/components/scene/SceneWrapper').then((mod) => mod.SceneWrapper),
+  { ssr: false },
+)
 const EscenaF = dynamic(() => import('@/components/scene/EscenaF/EscenaF'), { ssr: false })
 
 export default function SimuladorPage() {
